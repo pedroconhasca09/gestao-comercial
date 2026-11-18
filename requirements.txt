@@ -1,0 +1,9 @@
+django>=5.1
+psycopg[binary]
+dj-database-url
+python-dotenv
+whitenoise
+pytest
+pytest-django
+factory-boy
+ruff
