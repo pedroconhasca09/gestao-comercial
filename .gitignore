@@ -151,6 +151,8 @@ activemq-data/
 
 # Environments
 .env
+.env.*
+!.env.example
 .envrc
 .venv
 env/
@@ -221,3 +223,19 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Static files
+staticfiles/
+
+# Media 
+media/
+
+# Vercel
+.vercel/
+
+# Vscode
+.vscode/*
+!.vscode/settings.json
+
+# Node.js
+node_modules/
