@@ -1,0 +1,28 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py", "*_test.py", "tests.py"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+extend-exclude = ["**/migrations/*"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # Erros pycodestyle
+    "F",   # Pyflakes
+    "W",   # Avisos pycodestyle
+    "I",   # Isort (ordenação de imports)
+    "DJ",  # Regras específicas do Django
+    "UP",  # Pyupgrade
+]
+ignore = [
+    "DJ008", # Modelos sem __str__ imediato em migrações
+]
+
+[tool.ruff.lint.per-file-ignores]
+"config/settings.py" = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["apps", "config"]
