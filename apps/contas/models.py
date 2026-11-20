@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+
 # Create your models here.
 class Usuario(AbstractUser):
     class Perfil(models.TextChoices):
@@ -18,6 +19,19 @@ class Usuario(AbstractUser):
     class Meta:
         verbose_name = "usuário"
         verbose_name_plural = "usuários"
+
+    @property
+    def eh_gerente(self):
+        return self.perfil == self.Perfil.GERENTE
+
+    @property
+    def eh_vendedor(self):
+        return self.perfil == self.Perfil.VENDEDOR
+
+    @property
+    def eh_estoquista(self):
+        return self.perfil == self.Perfil.ESTOQUISTA
+
 
     def __str__(self):
         return self.username
